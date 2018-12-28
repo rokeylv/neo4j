@@ -1,0 +1,47 @@
+package org.rokey.controller;
+
+/**
+ * @Auther: Administrator
+ * @Date: 2018-12-28 08:54
+ * @Description:
+ */
+
+import org.apache.commons.lang3.RandomUtils;
+import org.rokey.entity.UserNode;
+import org.rokey.service.Neo4jService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.UUID;
+
+@RestController
+public class Neo4jController {
+    @Autowired
+    private Neo4jService neo4jService;
+
+    //创建50个node
+    @RequestMapping(path = "/addUserNode", method = RequestMethod.GET)
+    public String addUserNode() {
+        int i = 0;
+        do {
+            UserNode user = new UserNode();
+            user.setAge(RandomUtils.nextInt(15, 40));
+            user.setName("小明" + RandomUtils.nextInt(1, 1000));
+            user.setUserId(UUID.randomUUID().toString());
+            user.setNodeId(RandomUtils.nextLong(1L, 999L));
+            neo4jService.addUser(user);
+            i += 1;
+        } while (i < 50);
+
+        return "ok";
+    }
+
+    @RequestMapping(path = "/getUserNodeList", method = RequestMethod.GET)
+    public List<UserNode> getUserNodeList() {
+        return neo4jService.getUserNodeList();
+    }
+
+}
