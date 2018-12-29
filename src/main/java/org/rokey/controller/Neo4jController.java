@@ -18,12 +18,18 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-public class Neo4jController {
-    @Autowired
-    private Neo4jService neo4jService;
+public class Neo4jController extends BaseController {
 
-    //创建50个node
-    @RequestMapping(path = "/addUserNode", method = RequestMethod.GET)
+
+
+//    @Autowired
+//    private Neo4jService neo4jService;//测试用
+
+    /**
+     * 测试用
+     * @return
+     */
+   /* @RequestMapping(path = "/addUserNode", method = RequestMethod.GET)
     public String addUserNode() {
         int i = 0;
         do {
@@ -37,11 +43,11 @@ public class Neo4jController {
         } while (i < 50);
 
         return "ok";
-    }
+    }*/
 
-    @RequestMapping(path = "/getUserNodeList", method = RequestMethod.GET)
+    /*@RequestMapping(path = "/getUserNodeList", method = RequestMethod.GET)
     public List<UserNode> getUserNodeList() {
         return neo4jService.getUserNodeList();
-    }
+    }*/
 
 }

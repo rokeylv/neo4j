@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @Auther: Administrator
  * @Date: 2018-12-27 18:00
- * @Description:
+ * @Description:测试用
  */
 @Component
 public interface UserRepository extends Neo4jRepository<UserNode,Long> {
@@ -22,4 +22,6 @@ public interface UserRepository extends Neo4jRepository<UserNode,Long> {
     @Query("create (n:Person{age:{age},name:{name}}) RETURN n ")
     List<UserNode> addUserNodeList(@Param("name") String name, @Param("age")int age);
 
+//    @Override
+//    <S extends T> Iterable<S> save(Iterable<S> iterable, int i);
 }

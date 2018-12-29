@@ -19,42 +19,57 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-neo4j</artifactId>
-		</dependency>
+		<!--web依赖-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<!--neo4j依赖-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-neo4j</artifactId>
+		</dependency>
+		<!--neo4j驱动/开始-->
 		<!-- Only add if you're using the HTTP driver -->
 		<dependency>
 			<groupId>org.neo4j</groupId>
 			<artifactId>neo4j-ogm-http-driver</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+			<!-- Only add if you're using the Embedded driver -->
+		<!--<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-embedded-driver</artifactId>
+			<scope>runtime</scope>
+		</dependency>-->
+		<!-- Only add if you're using the Bolt driver -->
+		<!--<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-bolt-driver</artifactId>
+			<scope>runtime</scope>
+		</dependency>-->
+		<!--neo4j diver结束-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 
-
-	<!--	&lt;!&ndash; Only add if you're using the Embedded driver &ndash;&gt;
+		<!--简化实体类get/set代码-->
 		<dependency>
-			<groupId>org.neo4j</groupId>
-			<artifactId>neo4j-ogm-embedded-driver</artifactId>
-			<scope>runtime</scope>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 		</dependency>
 
-		&lt;!&ndash; Only add if you're using the Bolt driver &ndash;&gt;
+		<!--alibaba的fastjason依赖-->
 		<dependency>
-			<groupId>org.neo4j</groupId>
-			<artifactId>neo4j-ogm-bolt-driver</artifactId>
-			<scope>runtime</scope>
-		</dependency>-->
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.51</version>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
